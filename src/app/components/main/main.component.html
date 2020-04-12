@@ -1,0 +1,71 @@
+<div>
+    <div *ngIf="!locationAllowed">
+        Please provide access to location to continue using.
+        <br/>
+        TODO: Add instructions to enable location access
+    </div>
+
+    <div *ngIf="locationAllowed && user">
+        <mat-card class="main-page-card">
+            <mat-card-header>
+                <mat-card-title>Welcome {{user && user.name}}</mat-card-title>       
+            </mat-card-header>
+            
+            <mat-card-content class="user-content">                
+                Your groups is
+
+                <h4 class="group">
+                    {{user && user.group}}
+                </h4>     
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card *ngIf="user" class="main-page-card">
+            <mat-card-header>
+                <mat-card-subtitle>
+                    <h4>
+                        Your Booked Slots
+                    </h4>
+                    
+                    <small>
+                        (To delete booking, click slot below)
+                    </small>
+                </mat-card-subtitle>    
+            </mat-card-header>
+            
+            <mat-card-content class="user-content">
+                <div *ngIf="!user.bookings || !user.bookings.length">
+                    You do not have any bookings for today.
+                </div>
+
+                <div *ngIf="user.bookings && user.bookings.length">
+                    <sd-user-slots [bookings]="user.bookings"></sd-user-slots>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card *ngIf="user" class="main-page-card">
+            <mat-card-header>
+                <mat-card-subtitle>
+                    <h4>
+                        Book new slot
+                    </h4>
+
+                    <small>
+                        (To add booking, click slot below. Grayed slots are not available) 
+                    </small>
+                </mat-card-subtitle>       
+            </mat-card-header>
+            
+            <mat-card-content class="user-content">
+                <div *ngIf="slots.length">
+                    <sd-slots [slots] = "slots"></sd-slots>
+                </div>
+            </mat-card-content>
+        </mat-card>        
+    </div>
+
+    <div *ngIf="locationAllowed && !user">
+        Please login
+    </div>
+</div>

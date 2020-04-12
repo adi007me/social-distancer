@@ -1,0 +1,13 @@
+<div class="user-slots">
+    <button mat-raised-button color="accent" 
+        *ngFor="let b of bookings" 
+        class="booking"
+        (click)="deleteBooking(b.slot, b.hash)" 
+    >
+        {{ b.slot }} - {{ b.slot + 1 }}
+    </button>
+<!-- 
+    [disabled]="b.date < new Date()" 
+        [ngClass]="{'gray':b.date < new Date()}"
+        (click)="deleteBooking(b.slot, b.hash)" -->
+</div>

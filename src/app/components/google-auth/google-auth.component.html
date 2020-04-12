@@ -1,0 +1,27 @@
+<a [ngClass]="{ 'hidden': loggedIn }" class="profile-icon">
+  <img id="googleSignIn" src='https://image.flaticon.com/teams/slug/google.jpg' />
+</a>
+
+<a id="btnProfile" *ngIf="loggedIn" class="profile-icon" (click)="displayProfile()">
+  <img src='{{profileInfo.pictureUrl}}' />
+</a>
+
+<div class="popout" [ngClass]="{'display-popup': loggedIn && popout}">
+  <div class="user-info">
+    <img src='{{profileInfo.pictureUrl}}' class="profile-image" />
+
+    <div class="name">
+      {{ profileInfo.name }}
+    </div>
+  </div>
+
+  <div class="actions">
+    <button mat-button (click)="signOut()">
+      Logout
+    </button>
+
+    <button mat-button (click)="closePopup()">
+      Close
+    </button>
+  </div>
+</div>

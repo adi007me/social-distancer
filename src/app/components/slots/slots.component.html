@@ -1,0 +1,10 @@
+<div class="slots" *ngIf="slots">
+    <button mat-raised-button color="primary" 
+        *ngFor="let s of slots; let i = index" 
+        class="slot" [disabled] = "s >= 5" 
+        [ngClass]="{'gray':s >= 5}"
+        (click)="bookSlot(i)"
+    >
+        {{ i }} - {{ i + 1 }}
+    </button>
+</div>

@@ -1,0 +1,27 @@
+<div class="app-header">
+  <div class="header">
+    <img src='/assets/icon.png' class="app-header-octopus-icon" />
+
+    <span class="app-header-title">
+      Social Distancer
+    </span>
+
+    <sd-google-auth class="app-header-account-icon" class="google-auth"></sd-google-auth>
+  </div>
+  <nav>
+    <button [title]="'Home'" [routerLink]="['/']" mat-stroked-button
+        routerLinkActive="active" class="nav-link" [routerLinkActiveOptions]="{exact:true}">
+      Home
+    </button>
+
+    <button [title]="'Map'" [routerLink]="['/map']" mat-stroked-button
+        routerLinkActive="active" class="nav-link">
+      Map
+    </button>
+
+    <button [title]="'Help'" [routerLink]="['/help']" mat-stroked-button
+        routerLinkActive="active" class="nav-link">
+      Help
+    </button>
+  </nav>
+</div>
