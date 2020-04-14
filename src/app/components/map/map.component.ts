@@ -60,7 +60,5 @@ export class MapComponent implements OnInit {
         groups['G' + x + '' + y] = group;
       }
     }
-
-    console.log(groups);
   }
 }

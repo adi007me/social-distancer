@@ -19,16 +19,16 @@ export class AuthService {
   constructor(public http: HttpClient) {
   }
 
-  updateCurrentUser() : Observable<User> {
+  updateCurrentUser() {
     const url = `${Constants.BASE_URL}/auth/currentuser`;
     
-    return this.http.get<any>(url, { withCredentials: true }).pipe(map(user => {
+    this.http.get<any>(url, { withCredentials: true }).subscribe(user => {
       this.assignCurrentUser(user);
 
       this.userUpdated.emit(this.user);
 
       return this.user;
-    }));
+    });
   }
 
   authenticate(token: string, lat: number, lon: number) : Observable<User> {

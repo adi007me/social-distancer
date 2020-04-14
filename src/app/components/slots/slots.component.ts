@@ -12,25 +12,17 @@ export class SlotsComponent implements OnInit {
   waiting = false;
 
   constructor(private booking: BookingsService,
-              private auth: AuthService) { }
+              private auth: AuthService,
+              private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.auth.loggedIn.subscribe((user) => {
-      this.booking.getAvailableBookings().subscribe(counts => {
-        this.slots = counts.slots;
-      })
-    });
   }
 
   bookSlot(s) {
     this.waiting = true;
 
     this.booking.book(s).subscribe(res => {
-      this.auth.updateCurrentUser().subscribe();
-
-      this.booking.getAvailableBookings().subscribe(counts => {
-        this.slots = counts.slots;
-      })
+      this.auth.updateCurrentUser();
     });
   }
 

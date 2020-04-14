@@ -24,7 +24,6 @@ export class BookingsService {
   }
 
   delete(slot, hash): any {
-    console.log(hash);
     const url = `${Constants.BASE_URL}/booking/${slot}?hash=${hash}`;
 
     return this.http.delete(url, { withCredentials: true, responseType: 'text' });

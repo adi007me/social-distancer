@@ -35,7 +35,7 @@ export class GoogleAuthComponent implements OnInit, AfterViewInit {
   public googleInit() {
     gapi.load('auth2', () => {
       let auth = gapi.auth2.init({
-        client_id: '1073134485505-v9sktlqljqpq7t5pq9e6e1u9gkhi2alp.apps.googleusercontent.com',
+        client_id: '1076952200464-ctrb4np06dpvut38hnbjqcm6tf3tr3bt.apps.googleusercontent.com',
         cookiepolicy: 'single_host_origin',
         scope: 'profile email'
       })

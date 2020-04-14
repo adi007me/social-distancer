@@ -4,8 +4,8 @@
         <br/>
         TODO: Add instructions to enable location access
     </div>
-
-    <div *ngIf="locationAllowed && user">
+    
+    <div *ngIf="locationAllowed && isLoggedIn">
         <mat-card class="main-page-card">
             <mat-card-header>
                 <mat-card-title>Welcome {{user && user.name}}</mat-card-title>       
@@ -20,7 +20,7 @@
             </mat-card-content>
         </mat-card>
 
-        <mat-card *ngIf="user" class="main-page-card">
+        <mat-card *ngIf="isLoggedIn" class="main-page-card">
             <mat-card-header>
                 <mat-card-subtitle>
                     <h4>
@@ -44,7 +44,7 @@
             </mat-card-content>
         </mat-card>
 
-        <mat-card *ngIf="user" class="main-page-card">
+        <mat-card *ngIf="isLoggedIn" class="main-page-card">
             <mat-card-header>
                 <mat-card-subtitle>
                     <h4>
@@ -65,7 +65,7 @@
         </mat-card>        
     </div>
 
-    <div *ngIf="locationAllowed && !user">
+    <div *ngIf="locationAllowed && !isLoggedIn">
         Please login
     </div>
 </div>
